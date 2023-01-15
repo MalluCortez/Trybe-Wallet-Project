@@ -23,7 +23,7 @@ class WalletForm extends Component {
             placeholder="Descrição da despesa"
             className="input is-info is-medium"
           />
-          <div className="select is-medium is light">
+          <div className="select is-medium is-light">
             <select
               name="currencyInput"
               data-testid="currency-input"
@@ -35,6 +35,20 @@ class WalletForm extends Component {
                   </option>
                 ))
               }
+            </select>
+
+            <select data-testid="method-input" name="methodInput">
+              <option>Dinheiro</option>
+              <option>Cartão de crédito</option>
+              <option>Cartão de débito</option>
+            </select>
+
+            <select data-testid="tag-input" name="tagInput">
+              <option>Alimentação</option>
+              <option>Lazer</option>
+              <option>Trabalho</option>
+              <option>Transporte</option>
+              <option>Saúde</option>
             </select>
           </div>
         </form>
