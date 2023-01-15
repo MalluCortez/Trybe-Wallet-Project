@@ -22,7 +22,7 @@ const mapStateToProps = (state) => ({
   email: state.user.email,
   totalExpenses: state.wallet.expenses
     .reduce((total, curr) => (
-      total + (curr.value * curr.exchangeRates[curr.currency].ask)
+      total + (+curr.value * curr.exchangeRates[curr.currency].ask)
     ), 0),
 });
 
