@@ -9,10 +9,4 @@ const fetchCurr = async () => {
   return currencies;
 };
 
-const fetchRemove = async () => {
-  const fetchCurrencies = await fetch('https://economia.awesomeapi.com.br/json/all');
-  const currencyResponse = await fetchCurrencies.json();
-  delete currencyResponse.USDT;
-  return currencyResponse;
-};
-export default { fetchCurr, fetchRemove };
+export default fetchCurr;
