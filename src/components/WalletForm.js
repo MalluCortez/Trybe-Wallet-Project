@@ -23,34 +23,50 @@ class WalletForm extends Component {
             placeholder="Descrição da despesa"
             className="input is-info is-medium"
           />
-          <div className="select is-medium is-light">
+          <label htmlFor="paymentMethod">
+            <span> Moeda: </span>
             <select
-              name="currencyInput"
+              id="currencyInput"
               data-testid="currency-input"
+              className="select is light"
             >
               {
                 currencies.map((value) => (
                   <option key={ value }>
-                    { value }
+                    {value}
                   </option>
                 ))
               }
             </select>
+          </label>
 
-            <select data-testid="method-input" name="methodInput">
+          <label htmlFor="methodInput">
+            <span> Forma de Pagamento: </span>
+            <select
+              data-testid="method-input"
+              id="methodInput"
+              className="select is light"
+            >
               <option>Dinheiro</option>
               <option>Cartão de crédito</option>
               <option>Cartão de débito</option>
             </select>
+          </label>
 
-            <select data-testid="tag-input" name="tagInput">
+          <label htmlFor="tagInput">
+            <span> Categoria: </span>
+            <select
+              data-testid="tag-input"
+              id="tagInput"
+              className="select is light"
+            >
               <option>Alimentação</option>
               <option>Lazer</option>
               <option>Trabalho</option>
               <option>Transporte</option>
               <option>Saúde</option>
             </select>
-          </div>
+          </label>
         </form>
       </div>
     );
