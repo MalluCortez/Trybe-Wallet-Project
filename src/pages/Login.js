@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { userLogin } from '../redux/actions';
+import 'bulma/css/bulma.min.css';
 
 const passwordNumberMin = 6;
 
@@ -29,6 +30,7 @@ class Login extends React.Component {
       <main>
         <form>
           <input
+            className="input is-info is-medium"
             data-testid="email-input"
             type="email"
             name="email"
@@ -37,6 +39,7 @@ class Login extends React.Component {
             onChange={ this.handleChange }
           />
           <input
+            className="input is-info is-medium"
             data-testid="password-input"
             type="password"
             name="password"
@@ -47,6 +50,7 @@ class Login extends React.Component {
           <button
             type="button"
             onClick={ this.handleSubmit }
+            className="button is-info"
             disabled={ password.length < passwordNumberMin || !email.match(
               /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm,
             ) }
