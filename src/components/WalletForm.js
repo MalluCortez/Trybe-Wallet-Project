@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getAPItotal } from '../redux/actions';
+import { getAPItotal, saveInfo } from '../redux/actions';
 import 'bulma/css/bulma.min.css';
 
 class WalletForm extends Component {
@@ -43,8 +43,17 @@ class WalletForm extends Component {
     });
   };
 
+  handleEdit = () => {
+    const { dispatch } = this.props;
+    dispatch(saveInfo(this.state));
+    this.setState({
+      value: '',
+      description: '',
+    });
+  };
+
   render() {
-    const { currencies } = this.props;
+    const { editor, currencies } = this.props;
     const { value, description, currency, method, tag } = this.state;
     return (
       <div className="control">
@@ -122,9 +131,9 @@ class WalletForm extends Component {
           </label>
           <button
             type="button"
-            onClick={ this.handleSubmit }
+            onClick={ editor ? this.handleEdit : this.handleSubmit }
           >
-            Adicionar despesas
+            { editor ? 'Editar despesa' : 'Adicionar despesa'}
           </button>
         </form>
       </div>
@@ -135,12 +144,14 @@ class WalletForm extends Component {
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
   expenses: state.wallet.expenses,
+  editor: state.wallet.editor,
 });
 
 WalletForm.propTypes = ({
   dispatch: PropTypes.func.isRequired,
   expenses: PropTypes.instanceOf(Array).isRequired,
   currencies: PropTypes.instanceOf(Array).isRequired,
+  editor: PropTypes.bool.isRequired,
 });
 
 export default connect(mapStateToProps)(WalletForm);

@@ -1,4 +1,5 @@
-import { GET_REQUEST_CURR, SAVE_EXPENSES, EXPENCIE_DEL, EDIT } from '../actions';
+import { GET_REQUEST_CURR, SAVE_EXPENSES,
+  EXPENCIE_DEL, EDIT, SAVE_INFO } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -19,12 +20,19 @@ const walletReducer = (state = INITIAL_STATE, action) => {
   };
   case EXPENCIE_DEL: return {
     ...state,
-    expenses: action.id,
+    expenses: action.payload,
   };
   case EDIT: return {
     ...state,
     editor: true,
-    idToEdit: action.id,
+    idToEdit: action.payload,
+  };
+  case SAVE_INFO: return {
+    ...state,
+    expenses: state.expenses.map((element) => (element.id === Number(state.idToEdit)
+      ? ({ id: element.id, ...action.payload, exchangeRates: element.exchangeRates })
+      : element)),
+    editor: false,
   };
   default: return state;
   }

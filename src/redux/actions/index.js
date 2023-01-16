@@ -3,6 +3,7 @@ export const GET_REQUEST_CURR = 'GET_REQUEST_CURR';
 export const SAVE_EXPENSES = 'SAVE_EXPENSES';
 export const EXPENCIE_DEL = 'EXPENCIE_DEL';
 export const EDIT = 'EDIT';
+export const SAVE_INFO = 'SAVE_INFO';
 
 export const userLogin = (email) => ({
   type: USER_LOGIN,
@@ -23,12 +24,17 @@ export const saveExpenses = (element) => ({
 
 export const expencieDel = (id) => ({
   type: EXPENCIE_DEL,
-  id,
+  payload: id,
 });
 
 export const edit = (id) => ({
   type: EDIT,
-  id,
+  payload: id,
+});
+
+export const saveInfo = (exp) => ({
+  type: SAVE_INFO,
+  payload: exp,
 });
 
 export const getAPItotal = (expencie) => async (dispatch) => {

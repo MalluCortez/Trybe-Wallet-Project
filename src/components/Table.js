@@ -13,7 +13,6 @@ class Table extends Component {
   handleEdit = (element) => {
     const { dispatch } = this.props;
     dispatch(edit(element.target.id));
-    console.log(element.target.id);
   };
 
   render() {
