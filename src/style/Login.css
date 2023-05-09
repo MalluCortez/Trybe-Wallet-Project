@@ -1,0 +1,32 @@
+.style-page {
+  background: url('/imgs/foto\ fundo.png');
+  height: 965.39px;
+  left: -5.05px;
+  mix-blend-mode: luminosity;
+  opacity: 0.5;
+  position: absolute;
+  top: -147.39px;
+  width: 100%;
+}
+
+form {
+  background: white;
+  border-radius: 10px;
+  box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
+  height: 356px;
+  left: 377px;
+  position: absolute;
+  top: 201px;
+  width: 50%;
+}
+
+.title-form {
+  color: blue;
+  font-size: 20px;
+  height: 26.76px;
+  left: 661.13px;
+  padding-bottom: 2px;
+  text-align: center;
+  top: 281.44px;
+  width: 100%;
+}

@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { userLogin } from '../redux/actions';
-import 'bulma/css/bulma.min.css';
+import '../style/Login.css';
+import Vector from '../img';
 
 const passwordNumberMin = 6;
 
@@ -27,10 +28,11 @@ class Login extends React.Component {
   render() {
     const { email, password } = this.state;
     return (
-      <main>
+      <main className="style-page ">
         <form>
+          <img src={ Vector.png }></img>
+          <h1 className="title-form">Trybe Wallet</h1>
           <input
-            className="input is-info is-medium"
             data-testid="email-input"
             type="email"
             name="email"
@@ -39,7 +41,6 @@ class Login extends React.Component {
             onChange={ this.handleChange }
           />
           <input
-            className="input is-info is-medium"
             data-testid="password-input"
             type="password"
             name="password"
